@@ -1,4 +1,4 @@
-/**
+/*
  * LightningChartJS example for rendering a 'Mosaic chart'.
  */
 // Import LightningChartJS
