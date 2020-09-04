@@ -10,12 +10,13 @@ const {
     SolidFill,
     ColorRGBA,
     DefaultLibraryStyle,
-    emptyTick,
     emptyLine,
     emptyFill,
     UIElementBuilders,
     UIBackgrounds,
-    UIOrigins
+    UIOrigins,
+    AxisTickStrategies,
+    Themes
 } = lcjs
 
 const lc = lightningChart()
@@ -26,7 +27,9 @@ let mosaicChart
 {
     mosaicChart = () => {
         // Create a XY-Chart and add a RectSeries to it for rendering rectangles.
-        const chart = lc.ChartXY()
+        const chart = lc.ChartXY({
+            // theme: Themes.dark 
+        })
             .setTitle('Controlled Group Testing')
             .setMouseInteractions(false)
             // Disable default AutoCursor
@@ -42,7 +45,7 @@ let mosaicChart
             .setInterval(0, 100)
             .setMouseInteractions(false)
             // Hide default ticks of left Axis.
-            .setTickStyle(emptyTick)
+            .setTickStrategy(AxisTickStrategies.Empty)
         const rightAxis = chart.addAxisY(true)
             .setInterval(0, 100)
             .setScrollStrategy(undefined)
@@ -52,7 +55,7 @@ let mosaicChart
             .setInterval(0, 100)
             .setMouseInteractions(false)
             // Hide default ticks of top Axis.
-            .setTickStyle(emptyTick)
+            .setTickStrategy(AxisTickStrategies.Empty)
 
         // Create marker for the top of each column.
         const categoryMarkerBuilder = UIElementBuilders.PointableTextBox
@@ -65,6 +68,7 @@ let mosaicChart
                     .setFillStyle(emptyFill)
                     .setStrokeStyle(emptyLine)
                 )
+                .setTextFillStyle(new SolidFill({ color: ColorRGBA(170, 170, 170) }))
             )
         // Create text on top of each section.
         const subCategoryLabelBuilder = UIElementBuilders.TextBox
