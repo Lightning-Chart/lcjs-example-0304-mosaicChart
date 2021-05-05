@@ -9,7 +9,6 @@ const {
     lightningChart,
     SolidFill,
     ColorRGBA,
-    DefaultLibraryStyle,
     emptyLine,
     emptyFill,
     UIElementBuilders,
@@ -46,28 +45,21 @@ let mosaicChart
             .setMouseInteractions(false)
             // Hide default ticks of left Axis.
             .setTickStrategy(AxisTickStrategies.Empty)
-        const rightAxis = chart.addAxisY(true)
+        const rightAxis = chart.addAxisY({ opposite: true })
             .setInterval(0, 100)
             .setScrollStrategy(undefined)
             .setMouseInteractions(false)
             .setTitle('%')
-        const topAxis = chart.addAxisX(true)
+        const topAxis = chart.addAxisX({ opposite: true })
             .setInterval(0, 100)
             .setMouseInteractions(false)
             // Hide default ticks of top Axis.
             .setTickStrategy(AxisTickStrategies.Empty)
 
         // Create marker for the top of each column.
-        const categoryMarkerBuilder = UIElementBuilders.PointableTextBox
-            // Set the type of background for the marker.
-            .setBackground(UIBackgrounds.Pointer)
+        const categoryMarkerBuilder = UIElementBuilders.AxisTick
             // Style the marker.
             .addStyler((marker) => marker
-                // Hide Background. UIBackgrounds.None doesn't work for CustomTicks right now.
-                .setBackground((background) => background
-                    .setFillStyle(emptyFill)
-                    .setStrokeStyle(emptyLine)
-                )
                 .setTextFillStyle(new SolidFill({ color: ColorRGBA(170, 170, 170) }))
             )
         // Create text on top of each section.
@@ -83,12 +75,11 @@ let mosaicChart
         const categories = []
         const yCategories = []
         const subCategories = []
-        let margin = 4
+        let margin = 0.1
 
 
         // Recreate rectangle figures from scratch.
         const _updateChart = () => {
-            const px = { x: bottomAxis.scale.getPixelSize(), y: rightAxis.scale.getPixelSize() }
             // Remove already existing figures.
             rectangles.clear()
             // Make new figures from each category.
@@ -120,10 +111,10 @@ let mosaicChart
                             const relativeSubCategoryValue = 100 * subCategory.value / sumSubCategoryValues
                             if (relativeSubCategoryValue > 0) {
                                 const rectangleDimensions = {
-                                    x: xPos + margin * px.x,
-                                    y: yPos + margin * px.y,
-                                    width: relativeCategoryValue - 2 * margin * px.x,
-                                    height: relativeSubCategoryValue - 2 * margin * px.y
+                                    x: xPos + margin,
+                                    y: yPos + margin,
+                                    width: relativeCategoryValue - 2 * margin,
+                                    height: relativeSubCategoryValue - 2 * margin
                                 }
                                 // Create a rectangle to represent the subCategory
                                 rectangles.add(rectangleDimensions)
@@ -152,7 +143,7 @@ let mosaicChart
         // Method to add a new subCategory to the chart.
         const addSubCategory = () => {
             const subCategory = {
-                fillStyle: DefaultLibraryStyle.seriesFill,
+                fillStyle: Themes.dark.seriesFillStyle,
                 setFillStyle(fillStyle) {
                     this.fillStyle = fillStyle
                     // Refresh the chart.
@@ -185,7 +176,7 @@ let mosaicChart
                         this.subCategories.push({
                             subCategory,
                             value,
-                            label: chart.addUIElement(subCategoryLabelBuilder, { x: bottomAxis.scale, y: rightAxis.scale })
+                            label: chart.addUIElement(subCategoryLabelBuilder, { x: bottomAxis, y: rightAxis })
                         })
                     }
                     _updateChart()
