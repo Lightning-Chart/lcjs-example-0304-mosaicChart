@@ -1,6 +1,6 @@
-# Mosaic Chart
+# JavaScript Mosaic Chart
 
-![Mosaic Chart](mosaicChart.png)
+![JavaScript Mosaic Chart](mosaicChart.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
