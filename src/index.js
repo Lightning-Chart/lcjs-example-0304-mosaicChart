@@ -27,7 +27,7 @@ let mosaicChart
     mosaicChart = () => {
         // Create a XY-Chart and add a RectSeries to it for rendering rectangles.
         const chart = lc.ChartXY({
-            // theme: Themes.dark 
+            // theme: Themes.darkGold 
         })
             .setTitle('Controlled Group Testing')
             .setMouseInteractions(false)
@@ -70,6 +70,10 @@ let mosaicChart
                 .setOrigin(UIOrigins.Center)
                 .setTextFillStyle(new SolidFill().setColor(ColorRGBA(255, 255, 255)))
                 .setMouseInteractions(false)
+                .setBackground((background) => background
+                    .setFillStyle(emptyFill)
+                    .setStrokeStyle(emptyLine)
+                )
             )
 
         const categories = []
@@ -143,7 +147,7 @@ let mosaicChart
         // Method to add a new subCategory to the chart.
         const addSubCategory = () => {
             const subCategory = {
-                fillStyle: Themes.dark.seriesFillStyle,
+                fillStyle: Themes.darkGold.seriesFillStyle,
                 setFillStyle(fillStyle) {
                     this.fillStyle = fillStyle
                     // Refresh the chart.
