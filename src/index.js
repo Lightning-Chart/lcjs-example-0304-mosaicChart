@@ -2,7 +2,7 @@
  * LightningChartJS example for rendering a 'Mosaic chart'.
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
 const {
@@ -34,8 +34,7 @@ let mosaicChart
             })
             .setTitle('Controlled Group Testing')
             .setMouseInteractions(false)
-            // Disable default AutoCursor
-            .setAutoCursorMode(0)
+            .setCursorMode(undefined)
         const rectangles = chart.addRectangleSeries()
 
         const bottomAxis = chart
