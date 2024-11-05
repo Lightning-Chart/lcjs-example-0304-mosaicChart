@@ -80,14 +80,14 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/ChartXY.html
-[Rectangle series]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/RectangleSeries.html
-[Axis]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/Axis.html
-[Solid FillStyle]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/SolidFill.html
-[Empty FillStyle]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/variables/emptyFill-1.html
-[Solid LineStyle]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/SolidLine.html
-[Empty LineStyle]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/variables/emptyLine.html
-[Empty TickStyle]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/variables/emptyTick.html
-[RGBA color factory]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/functions/ColorRGBA.html
-[UI position origins]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/variables/UIOrigins.html
+[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/ChartXY.html
+[Rectangle series]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/RectangleSeries.html
+[Axis]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/Axis.html
+[Solid FillStyle]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/SolidFill.html
+[Empty FillStyle]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/variables/emptyFill-1.html
+[Solid LineStyle]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/SolidLine.html
+[Empty LineStyle]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/variables/emptyLine.html
+[Empty TickStyle]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/variables/emptyTick.html
+[RGBA color factory]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/functions/ColorRGBA.html
+[UI position origins]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/variables/UIOrigins.html
 
