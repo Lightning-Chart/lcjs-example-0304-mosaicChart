@@ -33,7 +33,7 @@ let mosaicChart
                 theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
             })
             .setTitle('Controlled Group Testing')
-            .setMouseInteractions(false)
+            .setUserInteractions(undefined)
             .setCursorMode(undefined)
         const rectangles = chart.addRectangleSeries()
 
@@ -41,24 +41,20 @@ let mosaicChart
             .getDefaultAxisX()
             .setInterval({ start: 0, end: 100, stopAxisAfter: false })
             .setScrollStrategy(undefined)
-            .setMouseInteractions(false)
             .setTitle('%')
         const leftAxis = chart
             .getDefaultAxisY()
             .setInterval({ start: 0, end: 100, stopAxisAfter: false })
-            .setMouseInteractions(false)
             // Hide default ticks of left Axis.
             .setTickStrategy(AxisTickStrategies.Empty)
         const rightAxis = chart
             .addAxisY({ opposite: true })
             .setInterval({ start: 0, end: 100, stopAxisAfter: false })
             .setScrollStrategy(undefined)
-            .setMouseInteractions(false)
             .setTitle('%')
         const topAxis = chart
             .addAxisX({ opposite: true })
             .setInterval({ start: 0, end: 100, stopAxisAfter: false })
-            .setMouseInteractions(false)
             // Hide default ticks of top Axis.
             .setTickStrategy(AxisTickStrategies.Empty)
 
@@ -72,7 +68,7 @@ let mosaicChart
                     // Set the origin point and fillStyle (color) for the label.
                     .setOrigin(UIOrigins.Center)
                     .setTextFillStyle(new SolidFill().setColor(ColorRGBA(255, 255, 255)))
-                    .setMouseInteractions(false)
+                    .setPointerEvents(false)
                     .setBackground((background) => background.setFillStyle(emptyFill).setStrokeStyle(emptyLine)),
             )
 
