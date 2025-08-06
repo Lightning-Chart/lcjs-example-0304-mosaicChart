@@ -30,6 +30,7 @@ let mosaicChart
         // Create a XY-Chart and add a RectSeries to it for rendering rectangles.
         const chart = lc
             .ChartXY({
+                legend: { visible: false },
                 theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
             })
             .setTitle('Controlled Group Testing')
